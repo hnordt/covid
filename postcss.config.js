@@ -6,7 +6,7 @@ module.exports = {
           require("@fullhuman/postcss-purgecss")({
             content: ["./src/**/*.js", "./public/**/*.html"],
             defaultExtractor: content => {
-              return content.match(/[\w-/:]+(?<!:)/g) || []
+              return content.match(/[\w-/.:]+(?<!:)/g) || []
             }
           })
         ]
