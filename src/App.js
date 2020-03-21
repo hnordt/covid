@@ -76,7 +76,7 @@ export function App() {
       <Content>
         <Card
           title="Progressão de casos"
-          description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países um a partir do registro do 100º caso."
+          description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países a partir do registro do 100º caso."
           dataSource={{
             name: "World in Data - Coronavirus Source Data",
             url: "https://ourworldindata.org/coronavirus-source-data"
