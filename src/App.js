@@ -17,7 +17,14 @@ import "numeral/locales/pt-br"
 
 numeral.locale("pt-br")
 
-let COUNTRIES = ["Brazil", "Italy", "Spain", "China", "United States"]
+let COUNTRIES = [
+  "Brazil",
+  "Italy",
+  "Spain",
+  "China",
+  "United States",
+  "South Korea"
+]
 
 function getCountryNameByDataKey(dataKey) {
   return {
@@ -25,7 +32,8 @@ function getCountryNameByDataKey(dataKey) {
     "totalCases.Italy": "Itália",
     "totalCases.Spain": "Espanha",
     "totalCases.China": "China",
-    "totalCases.United States": "EUA"
+    "totalCases.United States": "EUA",
+    "totalCases.South Korea": "South Korea"
   }[dataKey]
 }
 
@@ -129,7 +137,7 @@ export function App() {
                 type="monotone"
                 dataKey="totalCases.Brazil"
                 stroke="#38a169"
-                strokeWidth={1.5}
+                strokeWidth={3}
                 dot={false}
               />
               <Line
@@ -157,6 +165,13 @@ export function App() {
                 type="monotone"
                 dataKey="totalCases.China"
                 stroke="#e53e3e"
+                strokeWidth={1.5}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="totalCases.South Korea"
+                stroke="#718096"
                 strokeWidth={1.5}
                 dot={false}
               />
