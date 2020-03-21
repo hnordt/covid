@@ -53,8 +53,9 @@ export function App() {
           }
         }, {})
 
-        // Let's cut off data based on the amount of Italian data available
-        return L.range(0, parsedData["Italy"].length).map(i => {
+        console.log(parsedData)
+
+        return L.range(0, parsedData["Brazil"].length).map(i => {
           return {
             day: i + 1,
             totalCases: COUNTRIES.reduce((acc, country) => {
@@ -75,7 +76,7 @@ export function App() {
       <Content>
         <Card
           title="Progressão de casos"
-          description="Evolução do acumulado de casos comparando o ritmo de crescimento de cada um a partir do registro do 100º caso."
+          description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países um a partir do registro do 100º caso."
         >
           <ResponsiveContainer width="100%" height={500}>
             <LineChart
