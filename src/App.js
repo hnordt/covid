@@ -33,7 +33,7 @@ function getCountryNameByDataKey(dataKey) {
     "totalCases.Spain": "Espanha",
     "totalCases.China": "China",
     "totalCases.United States": "EUA",
-    "totalCases.South Korea": "South Korea"
+    "totalCases.South Korea": "Coreia do Sul"
   }[dataKey]
 }
 
