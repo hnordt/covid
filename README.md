@@ -1,4 +1,4 @@
-# PWA Template
+# Covid
 
 ## Available Scripts
 
