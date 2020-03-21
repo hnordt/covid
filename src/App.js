@@ -13,16 +13,17 @@ import axios from "axios"
 import * as L from "lodash/fp"
 import numeral from "numeral"
 import "numeral/locales/pt-br"
-import * as D from "date-fns/fp"
 
 numeral.locale("pt-br")
 
+let COUNTRIES = ["Brazil", "Italy", "China", "United States"]
+
 function getCountryNameByDataKey(dataKey) {
   return {
-    "cases.Brazil": "Brasil",
-    "cases.China": "China",
-    "cases.Italy": "Itália",
-    "cases.United States": "EUA"
+    "totalCases.Brazil": "Brasil",
+    "totalCases.China": "China",
+    "totalCases.Italy": "Itália",
+    "totalCases.United States": "EUA"
   }[dataKey]
 }
 
@@ -35,27 +36,36 @@ export function App() {
       .then(response => {
         return csv2json().fromString(response.data)
       })
-      .then(
-        L.pipe(
-          L.reduce((acc, item) => {
-            return {
-              ...acc,
-              [item.date]: {
-                ...acc[item.date],
-                [item.location]: item.total_cases
+      .then(data => {
+        let parsedData = COUNTRIES.reduce((acc, country) => {
+          return {
+            ...acc,
+            [country]: L.pipe(
+              L.filter(L.propEq("location", country)),
+              L.orderBy("date", "asc"),
+              L.filter(item => {
+                return item.total_cases >= 100
+              }),
+              L.map(item => {
+                return Number(item.total_cases)
+              })
+            )(data)
+          }
+        }, {})
+
+        // Let's cut off data based on the amount of Italian data available
+        return L.range(0, parsedData["Italy"].length).map(i => {
+          return {
+            day: i + 1,
+            totalCases: COUNTRIES.reduce((acc, country) => {
+              return {
+                ...acc,
+                [country]: parsedData[country][i]
               }
-            }
-          }, {}),
-          Object.entries,
-          L.map(([date, cases]) => {
-            return {
-              date,
-              cases: L.mapValues(Number, cases)
-            }
-          }),
-          L.orderBy("date", "asc")
-        )
-      )
+            }, {})
+          }
+        })
+      })
       .then(setData)
   }, [])
 
@@ -65,7 +75,7 @@ export function App() {
       <Content>
         <Card
           title="Progressão de casos"
-          description="Evolução do acumulado de casos em países de maior relevância para fins de comparação"
+          description="Evolução do acumulado de casos comparando o ritmo de crescimento de cada um a partir do registro do 100º caso."
         >
           <ResponsiveContainer width="100%" height={500}>
             <LineChart
@@ -78,20 +88,17 @@ export function App() {
                 right: 0
               }}
             >
-              <XAxis dataKey="date" hide />
+              <XAxis dataKey="day" hide />
               <Legend
                 iconType="plainline"
-                // layout="vertical"
-                // align="left"
-                // verticalAlign="top"
                 formatter={getCountryNameByDataKey}
                 wrapperStyle={{
                   paddingTop: 20
                 }}
               />
               <Tooltip
-                labelFormatter={date => {
-                  return D.format("dd/MM/yyyy", new Date(date))
+                labelFormatter={label => {
+                  return `Total de casos no ${label}º dia`
                 }}
                 separator=": "
                 formatter={(value, name) => {
@@ -109,28 +116,28 @@ export function App() {
               />
               <Line
                 type="monotone"
-                dataKey="cases.Brazil"
+                dataKey="totalCases.Brazil"
                 stroke="#38a169"
                 strokeWidth={1.5}
                 dot={false}
               />
               <Line
                 type="monotone"
-                dataKey="cases.United States"
+                dataKey="totalCases.United States"
                 stroke="#3182ce"
                 strokeWidth={1.5}
                 dot={false}
               />
               <Line
                 type="monotone"
-                dataKey="cases.Italy"
+                dataKey="totalCases.Italy"
                 stroke="#d53f8c"
                 strokeWidth={1.5}
                 dot={false}
               />
               <Line
                 type="monotone"
-                dataKey="cases.China"
+                dataKey="totalCases.China"
                 stroke="#e53e3e"
                 strokeWidth={1.5}
                 dot={false}
