@@ -63,7 +63,7 @@ export function App() {
           }
         }, {})
 
-        return L.range(0, parsedData["Brazil"].length).map(i => {
+        return L.range(0, 10).map(i => {
           return {
             day: i + 1,
             totalCases: COUNTRIES.reduce((acc, country) => {
