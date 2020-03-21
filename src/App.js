@@ -77,6 +77,10 @@ export function App() {
         <Card
           title="Progressão de casos"
           description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países um a partir do registro do 100º caso."
+          dataSource={{
+            name: "World in Data - Coronavirus Source Data",
+            url: "https://ourworldindata.org/coronavirus-source-data"
+          }}
         >
           <ResponsiveContainer width="100%" height={500}>
             <LineChart
@@ -179,6 +183,19 @@ function Card(props) {
         </p>
       </div>
       <div className="p-6">{props.children}</div>
+      <div className="border-t border-gray-200 p-6">
+        <p className="text-gray-500 text-sm leading-5">
+          <strong>Fonte:</strong>{" "}
+          <a
+            className="text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
+            href={props.dataSource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {props.dataSource.name}
+          </a>
+        </p>
+      </div>
     </div>
   )
 }
