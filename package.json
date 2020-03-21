@@ -1,0 +1,47 @@
+{
+  "name": "@hnordt/pwa-template",
+  "version": "0.0.0",
+  "scripts": {
+    "prestart": "npm run build:css",
+    "pretest": "npm run build:css",
+    "prebuild": "npm run build:css",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "build": "react-scripts build",
+    "build:css": "postcss src/index.css -o src/index.final.css",
+    "gen:component": "hygen component"
+  },
+  "dependencies": {
+    "@xstate/react": "0.8.1",
+    "axios": "0.19.2",
+    "classnames": "2.2.6",
+    "date-fns": "2.11.0",
+    "lodash": "4.17.15",
+    "nanoid": "2.1.11",
+    "normalizr": "3.6.0",
+    "qs": "6.9.1",
+    "ramda": "0.27.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.4.1",
+    "react-use": "13.27.0",
+    "use-deep-compare-effect": "1.3.1",
+    "xstate": "4.8.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@fullhuman/postcss-purgecss": "2.1.0",
+    "@testing-library/jest-dom": "5.1.1",
+    "@testing-library/react": "10.0.1",
+    "@testing-library/user-event": "10.0.0",
+    "husky": "4.2.3",
+    "hygen": "5.0.3",
+    "lint-staged": "10.0.8",
+    "postcss-cli": "7.1.0",
+    "prettier": "1.19.1",
+    "tailwindcss": "1.2.0"
+  },
+  "private": true
+}

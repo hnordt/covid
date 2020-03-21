@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+
+# Yarn
+/.pnp
+.pnp.js
+yarn-debug.log*
+yarn-error.log*
+
+# NPM
+/node_modules
+npm-debug.log*
+
+# CRA
+/coverage
+/build
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# PostCSS
+/src/index.final.css

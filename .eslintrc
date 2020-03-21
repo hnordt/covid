@@ -1,0 +1,70 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "no-use-before-define": [
+      "error",
+      {
+        "variables": true,
+        "functions": false
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": {
+          "minProperties": 1
+        }
+      }
+    ],
+    "arrow-body-style": ["error", "always"],
+    "no-else-return": [
+      "error",
+      {
+        "allowElseIf": false
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": "let",
+        "next": "*"
+      },
+      {
+        "blankLine": "never",
+        "prev": "singleline-let",
+        "next": "singleline-let"
+      },
+      {
+        "blankLine": "always",
+        "prev": "expression",
+        "next": "*"
+      },
+      {
+        "blankLine": "never",
+        "prev": "expression",
+        "next": "expression"
+      },
+      {
+        "blankLine": "always",
+        "prev": "multiline-expression",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "multiline-expression"
+      },
+      {
+        "blankLine": "always",
+        "prev": "block-like",
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": "return"
+      }
+    ]
+  }
+}
