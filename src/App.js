@@ -16,13 +16,14 @@ import "numeral/locales/pt-br"
 
 numeral.locale("pt-br")
 
-let COUNTRIES = ["Brazil", "Italy", "China", "United States"]
+let COUNTRIES = ["Brazil", "Italy", "Spain", "China", "United States"]
 
 function getCountryNameByDataKey(dataKey) {
   return {
     "totalCases.Brazil": "Brasil",
-    "totalCases.China": "China",
     "totalCases.Italy": "Itália",
+    "totalCases.Spain": "Espanha",
+    "totalCases.China": "China",
     "totalCases.United States": "EUA"
   }[dataKey]
 }
@@ -76,7 +77,7 @@ export function App() {
       <Content>
         <Card
           title="Progressão de casos"
-          description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países a partir do registro do 100º caso."
+          description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países a partir do registro do 100º caso"
           dataSource={{
             name: "World in Data - Coronavirus Source Data",
             url: "https://ourworldindata.org/coronavirus-source-data"
@@ -137,6 +138,13 @@ export function App() {
                 type="monotone"
                 dataKey="totalCases.Italy"
                 stroke="#d53f8c"
+                strokeWidth={1.5}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="totalCases.Spain"
+                stroke="#d69e2e"
                 strokeWidth={1.5}
                 dot={false}
               />
