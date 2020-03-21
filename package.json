@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "prestart": "npm run build:css",
-    "pretest": "npm run build:css",
-    "prebuild": "npm run build:css",
+    "pretest": "NODE_ENV=production npm run build:css",
+    "prebuild": "NODE_ENV=production npm run build:css",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "build": "react-scripts build",
