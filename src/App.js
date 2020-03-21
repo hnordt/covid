@@ -103,7 +103,7 @@ export function App() {
               />
               <Tooltip
                 labelFormatter={label => {
-                  return `Total de casos no ${label}º dia`
+                  return `Casos no ${label}º dia`
                 }}
                 separator=": "
                 formatter={(value, name) => {
