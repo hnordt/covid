@@ -5,7 +5,8 @@ import {
   XAxis,
   Tooltip,
   Legend,
-  ResponsiveContainer
+  ResponsiveContainer,
+  YAxis
 } from "recharts"
 import csv2json from "csvtojson/v2"
 import { Logo } from "Core/Components/Logo"
@@ -54,8 +55,6 @@ export function App() {
           }
         }, {})
 
-        console.log(parsedData)
-
         return L.range(0, parsedData["Brazil"].length).map(i => {
           return {
             day: i + 1,
@@ -95,6 +94,12 @@ export function App() {
               }}
             >
               <XAxis dataKey="day" hide />
+              <YAxis
+                tickFormatter={value => {
+                  return numeral(value).format("0,0")
+                }}
+                tickLine={false}
+              />
               <Legend
                 iconType="plainline"
                 formatter={getCountryNameByDataKey}
