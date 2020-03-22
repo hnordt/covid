@@ -70,8 +70,8 @@ export function TotalCasesProgression(props) {
             {...RECHARTS_OVERRIDES.legend}
           />
           <Tooltip
-            labelFormatter={countryName => {
-              return `Casos no ${countryName}º dia`
+            labelFormatter={day => {
+              return `Casos no ${day}º dia`
             }}
             formatter={(totalCases, countryName) => {
               return [
