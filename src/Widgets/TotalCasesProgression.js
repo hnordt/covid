@@ -23,6 +23,7 @@ export function TotalCasesProgression(props) {
     <Card
       title="Progressão de casos"
       description="Evolução do acumulado de casos no Brasil comparando com o ritmo de crescimento de outros países a partir do registro do 100º caso"
+      elaboration="O gráfico ignora todos os casos menores que 100 para criar uma linha do tempo parecida entre os países, ou seja, a linha do tempo exibida para cada país começa a partir do momento o país registra o 100º caso"
       dataSource={{
         name: "World in Data",
         url: "https://ourworldindata.org/coronavirus-source-data"

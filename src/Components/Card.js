@@ -14,6 +14,11 @@ export function Card(props) {
       </div>
       <div className="p-6">{props.children}</div>
       <div className="border-t border-gray-200 p-6">
+        {props.elaboration && (
+          <p className="text-gray-500 text-sm leading-5 mb-3">
+            <strong>Explicação detalhada:</strong> {props.elaboration}
+          </p>
+        )}
         <p className="text-gray-500 text-sm leading-5">
           <strong>Fonte:</strong>{" "}
           <Link href={props.dataSource.url} target="_blank">
