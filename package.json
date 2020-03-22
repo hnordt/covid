@@ -16,7 +16,6 @@
     "@xstate/react": "0.8.1",
     "axios": "0.19.2",
     "classnames": "2.2.6",
-    "csvtojson": "2.0.10",
     "date-fns": "2.11.0",
     "lodash": "4.17.15",
     "nanoid": "2.1.11",
