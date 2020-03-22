@@ -12,7 +12,6 @@
     "gen:component": "hygen component"
   },
   "dependencies": {
-    "@tailwindcss/ui": "0.1.3",
     "axios": "0.19.2",
     "classnames": "2.2.6",
     "lodash": "4.17.15",
@@ -26,6 +25,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@fullhuman/postcss-purgecss": "2.1.0",
+    "@tailwindcss/ui": "0.1.3",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "10.0.1",
     "@testing-library/user-event": "10.0.0",
