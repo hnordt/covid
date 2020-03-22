@@ -2,7 +2,7 @@ import React from "react"
 
 export function Stat(props) {
   return (
-    <div className="pt-8 px-8">
+    <div className="text-center pt-8 px-8">
       <p className="text-indigo-600 font-extrabold text-2xl leading-8 sm:text-3xl sm:leading-9">
         {props.value}
       </p>
