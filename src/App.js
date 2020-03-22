@@ -3,6 +3,7 @@ import * as L from "lodash/fp"
 import { COUNTRIES } from "Constants/COUNTRIES"
 import { Navbar } from "Components/Navbar"
 import { Content } from "Components/Content"
+import { PandemicStatus } from "Widgets/PandemicStatus"
 import { TotalCasesProgression } from "Widgets/TotalCasesProgression"
 import { fetchData } from "Requests/fetchData"
 
@@ -21,6 +22,13 @@ export function App() {
     }
   }, {})
 
+  let totalsInBrazil =
+    L.pipe(
+      L.filter(L.propEq("location", "Brazil")),
+      L.orderBy("date", "asc"),
+      L.last
+    )(data) ?? {}
+
   useEffect(() => {
     fetchData()
       .then(setData)
@@ -35,7 +43,10 @@ export function App() {
     <>
       <Navbar />
       <Content>
-        <TotalCasesProgression totalCasesByCountry={totalCasesByCountry} />
+        <div className="grid gap-8">
+          <PandemicStatus totalsInBrazil={totalsInBrazil} />
+          <TotalCasesProgression totalCasesByCountry={totalCasesByCountry} />
+        </div>
       </Content>
     </>
   )
