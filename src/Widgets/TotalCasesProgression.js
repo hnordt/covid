@@ -15,10 +15,13 @@ import { Card } from "Components/Card"
 import { findCountryByName } from "Utils/findCountryByName"
 import { formatNumber } from "Utils/formatNumber"
 
-// Number of days to show in the chart
-let NUMBER_OF_DAYS = 10
-
 export function TotalCasesProgression(props) {
+  // Number of days to show in the chart
+  let NUMBER_OF_DAYS =
+    props.totalCasesByCountry.Brazil.filter(totalCases => {
+      return totalCases >= 100
+    }).length + 5
+
   return (
     <Card
       title="Progressão de casos"
