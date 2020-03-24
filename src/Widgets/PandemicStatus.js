@@ -7,7 +7,7 @@ import { formatNumber } from "Utils/formatNumber"
 export function PandemicStatus(props) {
   return (
     <Card
-      title="Situação da pandemia"
+      title="Situação no Brasil"
       description="Estatísticas gerais da pandemia no Brasil"
       dataSource={{
         name: "World in Data",
@@ -24,7 +24,7 @@ export function PandemicStatus(props) {
           value={formatNumber(props.totalsInBrazil.totalDeaths)}
         />
         <Stat
-          label="Taxa de mortalidade"
+          label="Taxa de letalidade"
           value={`${formatNumber(
             (props.totalsInBrazil.totalDeaths /
               props.totalsInBrazil.totalCases) *
