@@ -20,7 +20,7 @@ export function TotalCasesProgression(props) {
   let NUMBER_OF_DAYS =
     props.totalCasesByCountry.Brazil.filter(totalCases => {
       return totalCases >= 100
-    }).length + 10
+    }).length + 20
 
   return (
     <Card
