@@ -14,7 +14,7 @@
   "dependencies": {
     "axios": "0.21.1",
     "classnames": "2.2.6",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "numeral": "2.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
